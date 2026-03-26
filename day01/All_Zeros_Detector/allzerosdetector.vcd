@@ -1,0 +1,63 @@
+$date
+	Thu Mar 26 07:03:20 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_all_zeros_detector $end
+$var wire 1 ! result $end
+$var reg 8 " a [7:0] $end
+$scope module dut $end
+$var wire 8 # a [7:0] $end
+$var wire 1 ! result $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 #
+b0 "
+1!
+$end
+#10
+0!
+b1 "
+b1 #
+#20
+b10 "
+b10 #
+#30
+b11 "
+b11 #
+#40
+b100 "
+b100 #
+#50
+b110 "
+b110 #
+#60
+b111 "
+b111 #
+#70
+b1111 "
+b1111 #
+#80
+b11111111 "
+b11111111 #
+#90
+b1111111 "
+b1111111 #
+#100
+b111100 "
+b111100 #
+#110
+1!
+b0 "
+b0 #
+#160
