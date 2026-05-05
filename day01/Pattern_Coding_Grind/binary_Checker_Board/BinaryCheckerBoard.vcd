@@ -1,0 +1,24 @@
+$date
+	Mon Apr 20 14:23:43 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_binary_checker_board $end
+$var integer 32 ! i [31:0] $end
+$var integer 32 " j [31:0] $end
+$var integer 32 # n [31:0] $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1001 #
+b1010 "
+b1010 !
+$end

@@ -1,0 +1,184 @@
+$date
+	Thu Mar 26 17:04:23 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_full_subtractor $end
+$var wire 1 ! difference_gl $end
+$var wire 1 " difference_df $end
+$var wire 1 # difference_beh $end
+$var wire 1 $ borrow_out_gl $end
+$var wire 1 % borrow_out_df $end
+$var wire 1 & borrow_out_beh $end
+$var reg 1 ' a $end
+$var reg 1 ( b $end
+$var reg 1 ) bin $end
+$scope module dut_beh $end
+$var wire 1 ' a $end
+$var wire 1 ( b $end
+$var wire 1 ) bin $end
+$var reg 1 & borrow_out_beh $end
+$var reg 1 # difference_beh $end
+$upscope $end
+$scope module dut_df $end
+$var wire 1 ' a $end
+$var wire 1 ( b $end
+$var wire 1 ) bin $end
+$var wire 1 % borrow_out_df $end
+$var wire 1 " difference_df $end
+$upscope $end
+$scope module dut_gl $end
+$var wire 1 ' a $end
+$var wire 1 * a_n $end
+$var wire 1 + and_1 $end
+$var wire 1 , and_2 $end
+$var wire 1 ( b $end
+$var wire 1 ) bin $end
+$var wire 1 $ borrow_out_gl $end
+$var wire 1 ! difference_gl $end
+$var wire 1 - not_1 $end
+$var wire 1 . xor_1 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+0.
+1-
+0,
+0+
+1*
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#10000
+1%
+1$
+1&
+1#
+1"
+1!
+1,
+1)
+#20000
+0-
+0,
+1.
+1+
+0)
+1(
+#30000
+0#
+0"
+0!
+1)
+#40000
+0%
+0$
+1"
+1!
+0+
+0&
+1#
+0*
+0)
+0(
+1'
+#50000
+0#
+0"
+0!
+1)
+#60000
+1-
+0.
+0)
+1(
+#70000
+1%
+1$
+1&
+1#
+1"
+1!
+1,
+1)
+#80000
+0$
+0%
+0"
+0!
+0,
+0&
+0#
+1*
+0)
+0(
+0'
+#90000
+1%
+1$
+1&
+1#
+1"
+1!
+1,
+1)
+#100000
+0-
+0,
+1.
+1+
+0)
+1(
+#110000
+0#
+0"
+0!
+1)
+#120000
+0%
+0$
+1"
+1!
+0+
+0&
+1#
+0*
+0)
+0(
+1'
+#130000
+0#
+0"
+0!
+1)
+#140000
+1-
+0.
+0)
+1(
+#150000
+1%
+1$
+1&
+1#
+1"
+1!
+1,
+1)
+#200000

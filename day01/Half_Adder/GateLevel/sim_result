@@ -1,0 +1,72 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x64aed365a890 .scope module, "tb_ha_gl" "tb_ha_gl" 2 1;
+ .timescale 0 0;
+v0x64aed36708b0_0 .var "a_gl", 0 0;
+v0x64aed3670970_0 .var "b_gl", 0 0;
+v0x64aed3670a40_0 .net "carry_gl", 0 0, L_0x64aed3670d00;  1 drivers
+v0x64aed3670b40_0 .net "sum_gl", 0 0, L_0x64aed36477f0;  1 drivers
+S_0x64aed365aa20 .scope module, "uut" "ha_gl" 2 5, 3 1 0, S_0x64aed365a890;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a_gl";
+    .port_info 1 /INPUT 1 "b_gl";
+    .port_info 2 /OUTPUT 1 "sum_gl";
+    .port_info 3 /OUTPUT 1 "carry_gl";
+L_0x64aed36477f0 .functor XOR 1, v0x64aed36708b0_0, v0x64aed3670970_0, C4<0>, C4<0>;
+L_0x64aed3670d00 .functor AND 1, v0x64aed36708b0_0, v0x64aed3670970_0, C4<1>, C4<1>;
+v0x64aed365ac00_0 .net "a_gl", 0 0, v0x64aed36708b0_0;  1 drivers
+v0x64aed36705b0_0 .net "b_gl", 0 0, v0x64aed3670970_0;  1 drivers
+v0x64aed3670670_0 .net "carry_gl", 0 0, L_0x64aed3670d00;  alias, 1 drivers
+v0x64aed3670740_0 .net "sum_gl", 0 0, L_0x64aed36477f0;  alias, 1 drivers
+    .scope S_0x64aed365a890;
+T_0 ;
+    %vpi_call 2 7 "$display", "------------------------------------------------------------------------------------------------------------" {0 0 0};
+    %vpi_call 2 8 "$display", "Half Adder Testbench: " {0 0 0};
+    %vpi_call 2 9 "$display", "----------------------------------------------------------------------------------------------------" {0 0 0};
+    %vpi_call 2 10 "$monitor", "Time = %0t | a_gl = %b | b_gl = %b | sum_gl = %b | carry_gl = %b", $time, v0x64aed36708b0_0, v0x64aed3670970_0, v0x64aed3670b40_0, v0x64aed3670a40_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x64aed365a890;
+T_1 ;
+    %vpi_call 2 15 "$dumpfile", "HalfAdderGL.vcd" {0 0 0};
+    %vpi_call 2 16 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x64aed365a890 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0x64aed365a890;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x64aed36708b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x64aed3670970_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x64aed36708b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x64aed3670970_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x64aed36708b0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x64aed3670970_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x64aed36708b0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x64aed3670970_0, 0, 1;
+    %delay 60, 0;
+    %vpi_call 2 33 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_ha_gl.v";
+    "ha_gl.v";

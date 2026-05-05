@@ -3,7 +3,7 @@ input wire a,
 input wire b, 
 input wire cin,
 output wire sum, 
-output wire carry_out
+output wire cout
 );
 
 assign sum = a ^ b ^ cin;

@@ -1,0 +1,68 @@
+module moore_fsm_sequence_one_non_overlapping #(
+	parameter S_WIDTH = 3)
+
+	(input wire clk, rst, input x_in, 
+	 output reg y)
+	
+	local param IDLE = 3'd0, S0 = 3'd1, S1 = 3'd2, S2 = 3'd3, S3 = 3'd4, S4 = 3'd5;
+		
+	wire [S_WIDTH - 1:0] current_state, next_state; 
+		
+	always @(posedge clk or posedge rst) begin 
+		if(rst) 
+			current_state <= IDLE;
+		else 
+			current_state <= next_state;
+	end 
+	// Non Overlapping Moore Sequence (11011): 
+	always @(*) begin
+		case(current_state) begin
+			IDLE: next_state = x_in ? S0 : IDLE;
+			S0: next_state = x_in ? S1 : IDLE;
+			S1: next_state = x_in ? S2 : S1; 
+			S2: next_state = x_in ? S3 : IDLE; 
+			S3: next_state = x_in ? S4 : IDLE; 
+			S4: next_state = x_in ? S0 : IDLE; 
+			default: next_state = IDLE;
+		endcase
+	end
+		
+	always @(*) begin 
+		assign y = (current_state == S5);
+	end	
+endmodule
+
+
+module moore_fsm_sequence_one_overlapping #(
+	parameter S_WIDTH = 3)
+
+	(input wire clk, rst, input x_in, 
+	 output reg y)
+	
+	local param IDLE = 3'd0, S0 = 3'd1, S1 = 3'd2, S2 = 3'd3, S3 = 3'd4, S4 = 3'd5, S5 = 3'd6;
+		
+	wire [S_WIDTH - 1:0] current_state, next_state; 
+		
+	always @(posedge clk or posedge rst) begin 
+		if(rst) 
+			current_state <= IDLE;
+		else 
+			current_state <= next_state;
+	end 
+	// Overlapping Moore Sequence (11011): 
+	always @(*) begin
+		case(current_state) begin
+			IDLE: next_state = x_in ? IDLE : S1;
+			S1: next_state = x_in ? IDLE : S2;
+			S2: next_state = x_in ? S3 : S2; 
+			S3: next_state = x_in ? S4 : IDLE; 
+			S4: next_state = x_in ? S5 : IDLE; 
+			S5: next_state = x_in ? S2 : S3; 
+			default: next_state = IDLE;
+		endcase
+	end
+		
+	always @(*) begin 
+		assign y = (current_state == S5);
+	end	
+endmodule

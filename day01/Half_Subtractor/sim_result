@@ -1,0 +1,74 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x570a6dd02cb0 .scope module, "half_subtractor_tb" "half_subtractor_tb" 2 1;
+ .timescale 0 0;
+v0x570a6dd18170_0 .var "a", 0 0;
+v0x570a6dd18230_0 .var "b", 0 0;
+v0x570a6dd18300_0 .net "borrow", 0 0, L_0x570a6dd186a0;  1 drivers
+v0x570a6dd18400_0 .net "difference", 0 0, L_0x570a6dd184d0;  1 drivers
+S_0x570a6dd02e40 .scope module, "DUT" "half_subtractor" 2 6, 3 1 0, S_0x570a6dd02cb0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "borrow";
+    .port_info 3 /OUTPUT 1 "difference";
+L_0x570a6dd184d0 .functor XOR 1, v0x570a6dd18170_0, v0x570a6dd18230_0, C4<0>, C4<0>;
+L_0x570a6dd18630 .functor NOT 1, v0x570a6dd18170_0, C4<0>, C4<0>, C4<0>;
+L_0x570a6dd186a0 .functor AND 1, L_0x570a6dd18630, v0x570a6dd18230_0, C4<1>, C4<1>;
+v0x570a6dd03040_0 .net "a", 0 0, v0x570a6dd18170_0;  1 drivers
+v0x570a6dd17d90_0 .net "a_not", 0 0, L_0x570a6dd18630;  1 drivers
+v0x570a6dd17e50_0 .net "b", 0 0, v0x570a6dd18230_0;  1 drivers
+v0x570a6dd17f20_0 .net "borrow", 0 0, L_0x570a6dd186a0;  alias, 1 drivers
+v0x570a6dd17fe0_0 .net "difference", 0 0, L_0x570a6dd184d0;  alias, 1 drivers
+    .scope S_0x570a6dd02cb0;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "halfsubtractor.vcd" {0 0 0};
+    %vpi_call 2 11 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x570a6dd02cb0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x570a6dd02cb0;
+T_1 ;
+    %vpi_call 2 16 "$display", "=========================================================================" {0 0 0};
+    %vpi_call 2 17 "$display", "=============================Half-Subtractor=============================" {0 0 0};
+    %vpi_call 2 18 "$display", "=========================================================================" {0 0 0};
+    %vpi_call 2 20 "$monitor", "a = %b | b = %b | borrow = %b | difference = %b", v0x570a6dd18170_0, v0x570a6dd18230_0, v0x570a6dd18300_0, v0x570a6dd18400_0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0x570a6dd02cb0;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x570a6dd18170_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x570a6dd18230_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x570a6dd18170_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x570a6dd18230_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x570a6dd18170_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x570a6dd18230_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x570a6dd18170_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x570a6dd18230_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 33 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_half_subtractor.v";
+    "half_subtractor.v";

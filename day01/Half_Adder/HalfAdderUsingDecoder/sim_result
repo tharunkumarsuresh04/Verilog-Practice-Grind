@@ -1,0 +1,100 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x5f839aa98f60 .scope module, "tb_ha_using_decoder" "tb_ha_using_decoder" 2 1;
+ .timescale 0 0;
+v0x5f839aab0fa0_0 .var "a", 0 0;
+v0x5f839aab10b0_0 .var "b", 0 0;
+v0x5f839aab11c0_0 .net "cout", 0 0, L_0x5f839aab1e10;  1 drivers
+v0x5f839aab1260_0 .net "sum", 0 0, L_0x5f839aab1d00;  1 drivers
+S_0x5f839aa990f0 .scope module, "uut" "ha_using_decoder" 2 5, 3 1 0, S_0x5f839aa98f60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "cout";
+L_0x5f839aab1d00 .functor OR 1, L_0x5f839aab1b30, L_0x5f839aab1bd0, C4<0>, C4<0>;
+v0x5f839aab09d0_0 .net *"_ivl_1", 0 0, L_0x5f839aab1b30;  1 drivers
+v0x5f839aab0ab0_0 .net *"_ivl_3", 0 0, L_0x5f839aab1bd0;  1 drivers
+v0x5f839aab0b90_0 .net "a", 0 0, v0x5f839aab0fa0_0;  1 drivers
+v0x5f839aab0c60_0 .net "b", 0 0, v0x5f839aab10b0_0;  1 drivers
+v0x5f839aab0d30_0 .net "cout", 0 0, L_0x5f839aab1e10;  alias, 1 drivers
+v0x5f839aab0dd0_0 .net "m", 3 0, L_0x5f839aab1840;  1 drivers
+v0x5f839aab0e70_0 .net "sum", 0 0, L_0x5f839aab1d00;  alias, 1 drivers
+L_0x5f839aab1b30 .part L_0x5f839aab1840, 1, 1;
+L_0x5f839aab1bd0 .part L_0x5f839aab1840, 2, 1;
+L_0x5f839aab1e10 .part L_0x5f839aab1840, 3, 1;
+S_0x5f839aa97190 .scope module, "uut" "two_four_decoder" 3 9, 4 1 0, S_0x5f839aa990f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 4 "d";
+L_0x5f839aab1300 .functor NOT 1, v0x5f839aab0fa0_0, C4<0>, C4<0>, C4<0>;
+L_0x5f839aab13a0 .functor NOT 1, v0x5f839aab10b0_0, C4<0>, C4<0>, C4<0>;
+L_0x5f839aab1440 .functor AND 1, L_0x5f839aab1300, L_0x5f839aab13a0, C4<1>, C4<1>;
+L_0x5f839aab1580 .functor NOT 1, v0x5f839aab0fa0_0, C4<0>, C4<0>, C4<0>;
+L_0x5f839aab1620 .functor AND 1, L_0x5f839aab1580, v0x5f839aab10b0_0, C4<1>, C4<1>;
+L_0x5f839aab1720 .functor NOT 1, v0x5f839aab10b0_0, C4<0>, C4<0>, C4<0>;
+L_0x5f839aab17d0 .functor AND 1, v0x5f839aab0fa0_0, L_0x5f839aab1720, C4<1>, C4<1>;
+L_0x5f839aab1a20 .functor AND 1, v0x5f839aab0fa0_0, v0x5f839aab10b0_0, C4<1>, C4<1>;
+v0x5f839aa99340_0 .net *"_ivl_10", 0 0, L_0x5f839aab1580;  1 drivers
+v0x5f839aab00a0_0 .net *"_ivl_12", 0 0, L_0x5f839aab1620;  1 drivers
+v0x5f839aab0180_0 .net *"_ivl_16", 0 0, L_0x5f839aab1720;  1 drivers
+v0x5f839aab0240_0 .net *"_ivl_18", 0 0, L_0x5f839aab17d0;  1 drivers
+v0x5f839aab0320_0 .net *"_ivl_2", 0 0, L_0x5f839aab1300;  1 drivers
+v0x5f839aab0450_0 .net *"_ivl_23", 0 0, L_0x5f839aab1a20;  1 drivers
+v0x5f839aab0530_0 .net *"_ivl_4", 0 0, L_0x5f839aab13a0;  1 drivers
+v0x5f839aab0610_0 .net *"_ivl_6", 0 0, L_0x5f839aab1440;  1 drivers
+v0x5f839aab06f0_0 .net "a", 0 0, v0x5f839aab0fa0_0;  alias, 1 drivers
+v0x5f839aab07b0_0 .net "b", 0 0, v0x5f839aab10b0_0;  alias, 1 drivers
+v0x5f839aab0870_0 .net "d", 3 0, L_0x5f839aab1840;  alias, 1 drivers
+L_0x5f839aab1840 .concat8 [ 1 1 1 1], L_0x5f839aab1440, L_0x5f839aab1620, L_0x5f839aab17d0, L_0x5f839aab1a20;
+    .scope S_0x5f839aa98f60;
+T_0 ;
+    %vpi_call 2 8 "$monitor", "Time = %0t | a = %b | b = %b | sum = %b | cout = %b", $time, v0x5f839aab0fa0_0, v0x5f839aab10b0_0, v0x5f839aab1260_0, v0x5f839aab11c0_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x5f839aa98f60;
+T_1 ;
+    %vpi_call 2 12 "$dumpfile", "HAUsingDecoder.vcd" {0 0 0};
+    %vpi_call 2 13 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x5f839aa98f60 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0x5f839aa98f60;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f839aab0fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f839aab10b0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f839aab0fa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f839aab10b0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f839aab0fa0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5f839aab10b0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f839aab0fa0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5f839aab10b0_0, 0, 1;
+    %delay 60, 0;
+    %vpi_call 2 25 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "tb_ha_using_decoder.v";
+    "ha_using_decoder.v";
+    "../Decoder/two_four_decoder.v";

@@ -1,0 +1,72 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x56f8a37ad7b0 .scope module, "tb_ha_df" "tb_ha_df" 2 1;
+ .timescale 0 0;
+v0x56f8a37c3ac0_0 .var "a_df", 0 0;
+v0x56f8a37c3b80_0 .var "b_df", 0 0;
+v0x56f8a37c3c50_0 .net "carry_df", 0 0, L_0x56f8a37c3f10;  1 drivers
+v0x56f8a37c3d50_0 .net "sum_df", 0 0, L_0x56f8a379a610;  1 drivers
+S_0x56f8a37ad940 .scope module, "uut" "ha_df" 2 5, 3 1 0, S_0x56f8a37ad7b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a_df";
+    .port_info 1 /INPUT 1 "b_df";
+    .port_info 2 /OUTPUT 1 "sum_df";
+    .port_info 3 /OUTPUT 1 "carry_df";
+L_0x56f8a379a610 .functor XOR 1, v0x56f8a37c3ac0_0, v0x56f8a37c3b80_0, C4<0>, C4<0>;
+L_0x56f8a37c3f10 .functor AND 1, v0x56f8a37c3ac0_0, v0x56f8a37c3b80_0, C4<1>, C4<1>;
+v0x56f8a37adb20_0 .net "a_df", 0 0, v0x56f8a37c3ac0_0;  1 drivers
+v0x56f8a37c37f0_0 .net "b_df", 0 0, v0x56f8a37c3b80_0;  1 drivers
+v0x56f8a37c38b0_0 .net "carry_df", 0 0, L_0x56f8a37c3f10;  alias, 1 drivers
+v0x56f8a37c3950_0 .net "sum_df", 0 0, L_0x56f8a379a610;  alias, 1 drivers
+    .scope S_0x56f8a37ad7b0;
+T_0 ;
+    %vpi_call 2 8 "$display", "---------------------------------------------------------------------------------------------" {0 0 0};
+    %vpi_call 2 9 "$display", "Half Adder Testbench: " {0 0 0};
+    %vpi_call 2 10 "$display", "---------------------------------------------------------------------------------------------" {0 0 0};
+    %vpi_call 2 12 "$monitor", "Time = %0t | a_df = %b | b_df = %b | sum_df = %b | carry_df = %b", $time, v0x56f8a37c3ac0_0, v0x56f8a37c3b80_0, v0x56f8a37c3d50_0, v0x56f8a37c3c50_0 {0 0 0};
+    %end;
+    .thread T_0;
+    .scope S_0x56f8a37ad7b0;
+T_1 ;
+    %vpi_call 2 16 "$dumpfile", "HalfAdderDF.vcd" {0 0 0};
+    %vpi_call 2 17 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x56f8a37ad7b0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0x56f8a37ad7b0;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56f8a37c3ac0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56f8a37c3b80_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56f8a37c3ac0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56f8a37c3b80_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56f8a37c3ac0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56f8a37c3b80_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56f8a37c3ac0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56f8a37c3b80_0, 0, 1;
+    %delay 60, 0;
+    %vpi_call 2 31 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "tb_ha_df.v";
+    "ha_df.v";

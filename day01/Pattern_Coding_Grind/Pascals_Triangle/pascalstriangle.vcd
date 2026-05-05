@@ -1,0 +1,28 @@
+$date
+	Wed Apr 29 14:38:22 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_pascals_triangle $end
+$var integer 32 ! N [31:0] $end
+$var integer 32 " i [31:0] $end
+$var integer 32 # j [31:0] $end
+$var integer 32 $ k [31:0] $end
+$var integer 32 % val [31:0] $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 %
+b1011 $
+b1 #
+b1011 "
+b1010 !
+$end

@@ -1,0 +1,24 @@
+$date
+	Wed Apr 15 12:47:39 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_right_angled_triangle $end
+$var integer 32 ! i [31:0] $end
+$var integer 32 " j [31:0] $end
+$var integer 32 # rows [31:0] $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b101 #
+bx "
+b1 !
+$end
